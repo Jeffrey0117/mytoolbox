@@ -1,8 +1,8 @@
 <#
-  Jeffrey0117 . toolbox - install my own apps on any Windows machine.
+  Jeffrey0117 . mytoolbox - install my own apps on any Windows machine.
 
   New machine, just want the tools (not a dev setup)?  Run:
-    irm https://raw.githubusercontent.com/Jeffrey0117/toolbox/main/install.ps1 | iex
+    irm https://raw.githubusercontent.com/Jeffrey0117/mytoolbox/main/install.ps1 | iex
 
   As a local file you also get:
     .\install.ps1 -List                       # show the catalog, install nothing
@@ -70,7 +70,7 @@ $targets = if ($Only) { $Apps | Where-Object { $Only -contains $_.Repo } } else 
 
 if ($List) {
   Write-Host ""
-  Write-Host "  toolbox - Jeffrey0117's apps" -ForegroundColor Cyan
+  Write-Host "  mytoolbox - Jeffrey0117's apps" -ForegroundColor Cyan
   Write-Host ""
   $targets | ForEach-Object { "    {0,-16} {1}" -f $_.Repo, $_.Desc }
   Write-Host ""

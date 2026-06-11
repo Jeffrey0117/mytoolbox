@@ -1,6 +1,6 @@
 <div align="center">
 
-# toolbox
+# mytoolbox
 
 **我自己做的小工具,一行指令裝到任何一台 Windows。**
 
@@ -15,7 +15,7 @@
 開 PowerShell,貼這行:
 
 ```powershell
-irm https://raw.githubusercontent.com/Jeffrey0117/toolbox/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/Jeffrey0117/mytoolbox/main/install.ps1 | iex
 ```
 
 它會**自動抓每個 app 的最新版**(免安裝的建捷徑、安裝版的跑安裝程式),東西放在 `C:\Tools`。
@@ -63,7 +63,7 @@ irm https://raw.githubusercontent.com/Jeffrey0117/toolbox/main/install.ps1 | iex
 
 | | 幹嘛的 | 什麼時候用 |
 |---|---|---|
-| **toolbox**(這個) | 裝**做好的 App** 來「用」 | 新電腦只想要工具,連不寫 code 的機器也行 |
+| **mytoolbox**(這個) | 裝**做好的 App** 來「用」 | 新電腦只想要工具,連不寫 code 的機器也行 |
 | [**DevFault**](https://github.com/Jeffrey0117/DevFault) | 重建**開發環境**(裝 git/node/docker、clone 原始碼、裝依賴) | 新電腦要拿來「寫程式」 |
 
 一個把機器變成「能用我的工具」,一個把機器變成「能開發」。別搞混、別重疊。
