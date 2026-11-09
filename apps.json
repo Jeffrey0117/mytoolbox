@@ -1,0 +1,93 @@
+{
+  "$comment": "The one list. install.ps1 and the website both read this file at runtime, so shipping a new app means editing here and nowhere else. Versions and download links are never written down — they are resolved from each repo's latest release, so this file does not go stale.",
+  "owner": "Jeffrey0117",
+  "installRoot": "C:\\Tools",
+  "apps": [
+    {
+      "repo": "lanpai-overlay",
+      "name": "Lanpai Overlay",
+      "tagline": { "en": "Pin text and images on top of anything", "zh": "把文字、圖片釘在螢幕最上層" },
+      "desc": {
+        "en": "A transparent, frameless layer that floats above every window. For notes, references and anything you need to keep looking at.",
+        "zh": "透明無邊框的浮層,蓋在所有視窗之上。放提示、參考資料,或任何需要一直看著的東西。"
+      },
+      "category": "screen"
+    },
+    {
+      "repo": "DuckShot",
+      "name": "DuckShot",
+      "tagline": { "en": "Screenshots without the ceremony", "zh": "最輕的截圖工具" },
+      "desc": {
+        "en": "Select, annotate, copy. Starts instantly and stays out of the way.",
+        "zh": "框選、標註、複製。開啟即用,不囉嗦。"
+      },
+      "category": "screen"
+    },
+    {
+      "repo": "Screenshot-OCR",
+      "name": "Screenshot OCR",
+      "tagline": { "en": "Screenshot to text", "zh": "截圖直接轉文字" },
+      "desc": {
+        "en": "Grab any region of the screen and get its text on the clipboard.",
+        "zh": "框住畫面上任何一塊,文字直接進剪貼簿。"
+      },
+      "category": "screen"
+    },
+    {
+      "repo": "ReVid",
+      "name": "ReVid",
+      "tagline": { "en": "Watch, study and cut your own video library", "zh": "看劇、學語言、剪精華" },
+      "desc": {
+        "en": "A local video player that transcribes what it plays: search every line across a whole show, read along in two languages, cut highlights, and watch it all from your phone.",
+        "zh": "會自己聽寫的本機播放器:整部劇的台詞都搜得到、中英對照邊看邊學、挑句子剪精華,手機也看得到。"
+      },
+      "category": "media"
+    },
+    {
+      "repo": "RePic",
+      "name": "RePic",
+      "tagline": { "en": "Resize a folder of images at once", "zh": "整個資料夾的圖一次改好" },
+      "desc": {
+        "en": "Batch resize and convert, with the settings you actually use kept to hand.",
+        "zh": "批次改尺寸和格式,常用的設定隨手可取。"
+      },
+      "category": "media"
+    },
+    {
+      "repo": "MemoryGuy",
+      "name": "MemoryGuy",
+      "tagline": { "en": "See what is eating your RAM", "zh": "看清楚記憶體被誰吃掉" },
+      "desc": {
+        "en": "Live memory monitor with one-click cleanup when something runs away with it.",
+        "zh": "即時監看記憶體,有東西失控時一鍵清理。"
+      },
+      "category": "system"
+    },
+    {
+      "repo": "PyClick",
+      "name": "PyClick",
+      "tagline": { "en": "Click whatever appears on screen", "zh": "看到什麼就點什麼" },
+      "desc": {
+        "en": "An auto clicker that finds its target by image rather than by coordinates, so it still works when the window moves.",
+        "zh": "靠圖像辨識找目標而不是記座標的自動點擊器,視窗移動了照樣有用。"
+      },
+      "category": "system"
+    },
+    {
+      "repo": "ClaudeBot",
+      "name": "ClaudeBot",
+      "tagline": { "en": "Drive Claude Code from Telegram", "zh": "用 Telegram 操控 Claude Code" },
+      "desc": {
+        "en": "Send work to your machine and read the results from your phone.",
+        "zh": "從手機派工作給你的電腦,結果也在手機上看。"
+      },
+      "category": "dev"
+    }
+  ],
+  "categories": {
+    "screen": { "en": "Screen", "zh": "螢幕" },
+    "media": { "en": "Media", "zh": "影音與圖片" },
+    "system": { "en": "System", "zh": "系統" },
+    "dev": { "en": "Dev", "zh": "開發" }
+  }
+}

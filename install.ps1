@@ -23,19 +23,38 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
 $Owner = 'Jeffrey0117'
-$Root  = 'C:\Tools'
+$CatalogUrl = "https://raw.githubusercontent.com/$Owner/mytoolbox/main/apps.json"
 
-# The catalog. Add a line here when you ship a new app.
-$Apps = @(
-  [pscustomobject]@{ Repo = 'lanpai-overlay'; Name = 'Lanpai Overlay'; Desc = 'On-screen overlay for text and images' }
-  [pscustomobject]@{ Repo = 'DuckShot';       Name = 'DuckShot';       Desc = 'Lightweight screenshot tool' }
-  [pscustomobject]@{ Repo = 'RePic';          Name = 'RePic';          Desc = 'Batch image resizer' }
-  [pscustomobject]@{ Repo = 'Screenshot-OCR'; Name = 'Screenshot OCR'; Desc = 'Screenshot to text (OCR)' }
-  [pscustomobject]@{ Repo = 'PyClick';        Name = 'PyClick';        Desc = 'Image-recognition auto clicker' }
-  [pscustomobject]@{ Repo = 'MemoryGuy';      Name = 'MemoryGuy';      Desc = 'RAM monitor / one-click optimize' }
-  [pscustomobject]@{ Repo = 'ReVid';          Name = 'ReVid';          Desc = 'Local video viewer / cropper' }
-  [pscustomobject]@{ Repo = 'ClaudeBot';      Name = 'ClaudeBot';      Desc = 'Control Claude Code via Telegram' }
-)
+# The catalog lives in apps.json, which the website reads too. Fetching it
+# at run time rather than embedding it means this script never needs editing
+# to ship a new app - and a machine that ran the one-liner last year gets
+# today's list.
+function Get-Catalog {
+  $local = Join-Path $PSScriptRoot 'apps.json'
+  if ($PSScriptRoot -and (Test-Path -LiteralPath $local)) {
+    return Get-Content -LiteralPath $local -Raw -Encoding UTF8 | ConvertFrom-Json
+  }
+  Invoke-RestMethod -Uri $CatalogUrl -Headers @{ 'User-Agent' = 'toolbox-installer' }
+}
+
+try {
+  $catalog = Get-Catalog
+} catch {
+  Write-Host "Could not read the app list: $($_.Exception.Message)" -ForegroundColor Red
+  return
+}
+
+$Root = if ($catalog.installRoot) { $catalog.installRoot } else { 'C:\Tools' }
+if ($catalog.owner) { $Owner = $catalog.owner }
+
+# One shape for the rest of the script, whichever language the list carries.
+$Apps = @($catalog.apps | ForEach-Object {
+  [pscustomobject]@{
+    Repo = $_.repo
+    Name = $_.name
+    Desc = if ($_.tagline.en) { $_.tagline.en } else { $_.name }
+  }
+})
 
 function Resolve-Asset($repo) {
   $api = "https://api.github.com/repos/$Owner/$repo/releases/latest"
