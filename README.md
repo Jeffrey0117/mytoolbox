@@ -12,7 +12,9 @@
 
 ## 一行安裝
 
-開 PowerShell,貼這行:
+**加書籤用這個:[jeffrey0117.github.io/toolbox](https://jeffrey0117.github.io/toolbox/)** —— 新電腦開那頁,按複製就好。
+
+或直接開 PowerShell,貼這行:
 
 ```powershell
 irm https://raw.githubusercontent.com/Jeffrey0117/mytoolbox/main/install.ps1 | iex
@@ -37,7 +39,9 @@ irm https://raw.githubusercontent.com/Jeffrey0117/mytoolbox/main/install.ps1 | i
 | **ClaudeBot** | 用 Telegram 操控 Claude Code | [repo](https://github.com/Jeffrey0117/ClaudeBot) · [下載](https://github.com/Jeffrey0117/ClaudeBot/releases/latest) |
 
 > 這張表也是我自己的記憶清單——哪些東西做好了、各自幹嘛,一頁看完。
-> 加了新 app?在 `install.ps1` 的清單補一行、這張表補一列就好。
+>
+> **加了新 app?只改 `apps.json` 一個地方。** 安裝腳本和網站都是讀那一份,
+> 版本和下載網址則是用的時候才去各 repo 查最新的 release,所以哪邊都不會過期。
 
 ---
 
